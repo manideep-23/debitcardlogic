@@ -1,0 +1,65 @@
+<html>
+  <body>
+  <h1>Enter Your first 15 digit Debit Card Number</h1>
+  <form >
+<input type="text" id="d" size="50" placeholder="enter here without spaces">
+<br><br>
+<input type="button" value="click to get" onclick="add()">
+<br>
+<h2>Your Last Digit:</h2>
+    <input type="text" id="n">
+
+	</form>
+	<script>
+	function add()
+	{
+	var tak=document.getElementById("d").value;
+	tak="0."+tak;
+	var ar=tak.split("");
+var req="";
+var val=1;
+var p=0;
+var oddcou=0;
+var evecou=0;
+var i;
+
+for(i=2;i<=16;i=i+1)
+{
+	if(i%2==0)
+	{
+		val=parseInt(ar[i])*2;
+		if(val>=10)
+		{
+			var x=val.toString();
+			var sec=x.split("");
+			var s=parseInt(sec[0])+parseInt(sec[1]);
+			oddcou=oddcou+s;
+			
+		}
+		else{
+		oddcou=oddcou+val;
+		}
+		}
+		if(i%2==1)
+	{
+		evecou=evecou+parseInt(ar[i]);
+		}
+	req=req+ar[i];
+	if(i==5||i==9||i==13)
+		req=req+" ";
+}
+		var total1=evecou+oddcou;
+var res=total1%10;
+ sub=10-res;
+ //document.write(sub);
+ if(sub!=10)
+document.getElementById("n").value=sub;
+else
+document.getElementById("n").value="0";
+
+		}
+		
+	</script>
+	</body>
+	</html>
+	
